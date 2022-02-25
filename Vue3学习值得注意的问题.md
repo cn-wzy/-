@@ -54,3 +54,8 @@
             </Suspense>
 
     有Suspense可以setup中返回一个promise
+
+## vuex为什么要通过mutations修改state，而不能直接修改
+    state是异步更新的，mutations无法进行异步操作，如果直接修改state是可以异步操作的，如果异步操作时，还没执行完，state又在其他地方修改了，会导致出现问题
+    通过mutation修改state，vue调试工具会记录下来，方便调试
+    vuex是跨组件交互，拆分为基于状态管理的处理，这样项目代码会更加直观更加利于维护
